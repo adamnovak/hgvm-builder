@@ -1139,11 +1139,7 @@ def pileup_on_hgvm_job(job, options, hgvm, gam_id):
             options.drunner.call(job, [vg_args], outfile=pileup_handle,
                 work_dir=work_dir)
     except Exception as e:
-        logging.error("Failed. Dumping files.")
-        
-        hgvm.add("aligned.gam", gam_id)
-        hgvm.dump(job.fileStore, "/home/anovak/dump/{}".format(
-            random.randint(0, 1000000000)))
+        logging.error("Failed to pile up.")
         raise e
     
     
